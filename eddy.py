@@ -45,6 +45,7 @@ def neutraliseTarget(hexNum):
     for byte in hexNum:
         bin_val += conversion[byte]
     
+    # Work from backwards
     for i in range(1, len(bin_val)+1):
         if bin_val[-i] == '1':
             key = keys[-i]
