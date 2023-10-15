@@ -19,7 +19,6 @@ wait.until(EC.presence_of_element_located((By.TAG_NAME,"html"))) # Prevents from
 html = browser.find_element(By.TAG_NAME, 'html')
 
 
-
 # Hex to Keyboard input
 def neutraliseTarget(hexNum):
     keys = "asdfghjk"
