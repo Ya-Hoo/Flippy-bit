@@ -1,4 +1,6 @@
-# Library
+# ============================================================= #
+# ========================== Library ========================== #
+# ============================================================= #
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -8,18 +10,22 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 
-# Load browser
+# ============================================================= #
+# ======================= Load browser ======================== #
+# ============================================================= #
 browser = webdriver.Chrome()
 url = "https://flippybitandtheattackofthehexadecimalsfrombase16.com/"
 browser.get(url)
 browser.maximize_window()
 wait=WebDriverWait(browser,10)
-wait.until(EC.presence_of_element_located((By.TAG_NAME,"html"))) # Prevents from spamming page before it loads
+wait.until(EC.presence_of_element_located((By.TAG_NAME,"html")))
 
 html = browser.find_element(By.TAG_NAME, 'html')
 
 
-# Hex to Keyboard input
+# ============================================================= #
+# ========================= Functions ========================= #
+# ============================================================= #
 def neutraliseTarget(hexNum):
     keys = "asdfghjk"
     bin_val = ""
@@ -52,20 +58,28 @@ def neutraliseTarget(hexNum):
             time.sleep(0.005) # Another stroke prevention
 
 
-# Game start
+# ============================================================= #
+# =========================== Game ============================ #
+# ============================================================= #
 time.sleep(4)
 html.send_keys(Keys.ENTER)
+score = 0
 
-
-# Bot takes over
-while True:
+# Bot's brain
+while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):
     try:
         enemies = [enemy for enemy in browser.find_elements(By.CLASS_NAME, 'enemy')
                     if "under-attack" not in enemy.get_attribute('class')]
         if len(enemies) > 0:
             for enemy in enemies:
                 neutraliseTarget(enemy.text)
+                score += 1
         else:
             time.sleep(3)  # Stroke prevention
     except StaleElementReferenceException:  # Ignore enemies who's targetted but haven't been hit
         time.sleep(3)
+
+
+# Data recording
+with open(r'eddy_v1\log.txt', 'a') as f:
+    f.write(f"{score}\n")
