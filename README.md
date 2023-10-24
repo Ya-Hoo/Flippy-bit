@@ -4,12 +4,12 @@ To commemorate Edward, the True Champion
 
 ## Released
 
-eddy (v1) - first version, had flaws such as occasional strokes
+eddy (v1) - first version, had flaws such as occasional strokes  
 big ed (v2) - added bullet spray at death wave + more efficient mapping of hex--key which enables "piano" playstyle
 
 ## Future plan
 
-UPCOMING: GIGA ed (v3)
+UPCOMING: GIGA ed (v3)  
 Features planned:
 
 1. analyse the distribution of the hex spawned. If there's a pattern then when the deathwave comes, add in the weighing of the distribution
