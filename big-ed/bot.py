@@ -38,10 +38,6 @@ def neutraliseTarget(hexNum):
     html.send_keys(''.join([conversion[byte][(index + 1) // len(hexNum)] for index, byte in enumerate(hexNum)]))
 
 
-def bulletSpray():
-    html.send_keys(random.choice("asdfghjk"))
-
-
 # ============================================================= #
 # =========================== Game ============================ #
 # ============================================================= #
@@ -49,7 +45,7 @@ time.sleep(4)
 html.send_keys(Keys.ENTER)
 score = 0
 
-while score < 85:  # Thinking waves
+while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):  # Thinking waves
     try:
         enemies = [enemy for enemy in browser.find_elements(By.CLASS_NAME, 'enemy')
                     if "under-attack" not in enemy.get_attribute('class')]
@@ -60,11 +56,8 @@ while score < 85:  # Thinking waves
     # Ignore enemies who's targetted but haven't been hit
     except StaleElementReferenceException:
         time.sleep(0.001)
-
-while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):  # Deathwave
-    bulletSpray()
-
-score = browser.find_element(By.ID, 'score').text
+        
 # Data recording
-with open(r'bid ed\log.txt', 'a') as f:
+score = browser.find_element(By.ID, 'score').text
+with open(r'big-ed\log.txt', 'a') as f:
     f.write(f"{score}\n")
