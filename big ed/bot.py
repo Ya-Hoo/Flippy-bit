@@ -66,5 +66,5 @@ while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute
 
 score = browser.find_element(By.ID, 'score').text
 # Data recording
-with open(r'eddy_v2\log.txt', 'a') as f:
+with open(r'bid ed\log.txt', 'a') as f:
     f.write(f"{score}\n")
