@@ -18,3 +18,8 @@ Features planned:
 4. Prevents any user input
 5. Because death wave arrives at different score on different machines, have GIGA ed play a trial round to find out when this will occur. 
 Then use that data to determine when to switch to bullet spray mode.
+
+## Analysis and comparison
+
+Plot histogram/distribution chart to compare different versions of ed
+Tryna think of a way that other ppl can contribute data to this
