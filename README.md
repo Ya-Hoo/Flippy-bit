@@ -15,8 +15,8 @@ Features planned:
 1. find a way to extract seed of randomise function of game. From that can predict every hex that will spawn --> 100% hit in the death wave
 2. OR in death wave switch to targetting individual hex instead?
 3. Prevents any user input
-4. Because death wave arrives at different score on different machines, have GIGA ed play a trial round to find out when this will occur.
-Then use that data to determine when to switch to bullet spray mode.
+4. On slower computers the program would stop after a while, so find out when this occurs by
+playing a trial round then after 2nd play, switch to bullet spray mode after that threshold
 
 ## Analysis and comparison
 

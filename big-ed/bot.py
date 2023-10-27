@@ -43,7 +43,6 @@ def neutraliseTarget(hexNum):
 # ============================================================= #
 time.sleep(4)
 html.send_keys(Keys.ENTER)
-score = 0
 
 while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):  # Thinking waves
     try:
@@ -52,7 +51,6 @@ while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute
         if len(enemies) > 0:
             for enemy in enemies:
                 neutraliseTarget(enemy.text)
-                score += 1
     # Ignore enemies who's targetted but haven't been hit
     except StaleElementReferenceException:
         time.sleep(0.001)
