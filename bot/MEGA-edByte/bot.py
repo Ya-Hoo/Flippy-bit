@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
-import time, random
+import time, os
 
 
 # ============================================================= #
@@ -47,7 +47,7 @@ html.send_keys(Keys.ENTER)
 while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):  # Thinking waves
     try:
         enemies = [enemy for enemy in browser.find_elements(By.CLASS_NAME, 'enemy')
-                    if "under-attack" not in enemy.get_attribute('class')]
+                   if "under-attack" not in enemy.get_attribute('class')]
         if len(enemies) > 0:
             for enemy in enemies:
                 neutraliseTarget(enemy.text)
@@ -57,5 +57,6 @@ while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute
         
 # Data recording
 score = browser.find_element(By.ID, 'score').text
-with open(r'big-ed\log.txt', 'a') as f:
+file_path = rf"{os.getcwd()}\bot\MEGA-edByte\log.txt"
+with open(file_path, 'a') as f:
     f.write(f"{score}\n")

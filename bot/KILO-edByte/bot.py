@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
-import time
+import time, os
 
 
 # ============================================================= #
@@ -81,5 +81,6 @@ while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute
 
 
 # Data recording
-with open(r'eddy\log.txt', 'a') as f:
+file_path = rf"{os.getcwd()}\bot\KILO-edByte\log.txt"
+with open(file_path, 'a') as f:
     f.write(f"{score}\n")
