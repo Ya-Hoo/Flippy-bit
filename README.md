@@ -25,12 +25,14 @@ playing a trial round then after 2nd play, switch to bullet spray mode after tha
 ### Data contribution
 
 You can contribute to this repository by running the bot on your computer and the score you get will be recorded into the bot's respective `log.txt` file. As more data are added, we can better evaluate the bot's performance.  
+Or if you want something code-related, then I would appreciate it if someone code a test function to test the bot multiple times in the background.
 
 #### Requirements
 
 * Git Bash installed
 * Python set up in the computer
-* (optional) GitHub Desktop
+* (optional) GitHub Desktop installed
+* (optional) IDE or a code editor installed
 
 #### Instructions
 
@@ -58,11 +60,12 @@ Click __<> Code__.
 5. Open Powershell in the same directory then type in the command below to install the necessary libraries
 
     ```powershell
-    python -m pip install selenium
+    python -m pip install -r requirements.txt
     ```
 
 6. Execute the `bot.py` on the version you want to play as many times as you like.
-7. Commit and push.
+7. (optional) Run `analysis.py`
+8. Commit and push.
 
     ```bash
     git add .
@@ -70,8 +73,15 @@ Click __<> Code__.
     git push origin branch-name
     ```
 
-8. Create a new pull request from your forked repository (Click __New Pull Request__ at the top of your repository)
+9. Create a new pull request from your forked repository (Click __New Pull Request__ at the top of your repository)
 
 ### Graphs
 
-Work in progress: basically imma do a histogram/distribution chart of the scores different versions of the bots get to see if it has gotten any better at the game.
+Kernel Distribution Estimation Plot  
+![KDE](data/dist.svg)
+
+Histogram  
+![KDE](data/hist.svg)
+
+Box and Whisker Plot  
+![KDE](data/box.svg)

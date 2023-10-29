@@ -55,7 +55,7 @@ def neutraliseTarget(hexNum):
         if bin_val[-i] == '1':
             key = keys[-i]
             html.send_keys(key)
-            time.sleep(0.005) # Another stroke prevention
+            time.sleep(0.01) # Another stroke prevention
 
 
 # ============================================================= #
@@ -63,7 +63,6 @@ def neutraliseTarget(hexNum):
 # ============================================================= #
 time.sleep(4)
 html.send_keys(Keys.ENTER)
-score = 0
 
 # Bot's brain
 while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):
@@ -73,14 +72,12 @@ while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute
         if len(enemies) > 0:
             for enemy in enemies:
                 neutraliseTarget(enemy.text)
-                score += 1
-        else:
-            time.sleep(3)  # Stroke prevention
     except StaleElementReferenceException:  # Ignore enemies who's targetted but haven't been hit
         time.sleep(3)
 
 
 # Data recording
+score = browser.find_element(By.ID, 'score').text
 file_path = rf"{os.getcwd()}\bot\KILO-edByte\log.txt"
 with open(file_path, 'a') as f:
     f.write(f"{score}\n")
