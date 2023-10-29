@@ -19,10 +19,12 @@ for botVersion in os.listdir(bot_path):
         for score in f:
             data[botVersion].append(int(score.rstrip("\n")))
 
-# Ensure that column have equal entries
-maxLen = len(max(data.values(), key=lambda x: len(x)))
+# Set lower and upper bound for historgram + box
 maxVal = max(max(data.values(), key=lambda x: max(x)))
 minVal = min(min(data.values(), key=lambda x: min(x)))
+
+# Ensure that column have equal entries
+maxLen = len(max(data.values(), key=lambda x: len(x)))
 for k, v in data.items():
     while len(v) != maxLen:
         data[k].append(None)
@@ -34,7 +36,7 @@ data = pd.DataFrame(data).convert_dtypes()
 # ============================================================= #
 sns.set(style="ticks", context="talk")
 
-dist = sns.displot(data, kind='kde', rug=True, fill=True)
+sns.displot(data, kind='kde', rug=True, fill=True)
 plt.savefig(fr'{data_path}\dist.svg', bbox_inches='tight')
 
 hist = sns.histplot(data, legend=False)
@@ -43,4 +45,5 @@ plt.savefig(fr'{data_path}\hist.svg', bbox_inches='tight')
 
 box = sns.boxplot(data, legend=False)
 sns.stripplot(data, size=4, color=".3")
+box.set_ylim(minVal-10, maxVal+10)
 plt.savefig(fr'{data_path}\box.svg', bbox_inches='tight')
