@@ -6,7 +6,7 @@ To commemorate Edward, the True Flippy Bit Champion
 
 ### Released
 
-KILO-edByte (v1) - first version, had flaws such as occasional strokes which causes delay  
+KILO-edByte (v1) - first version, had flaws such as occasional strokes which causes delay, also unable to play the 'deathwave'  
 MEGA-edByte (v2) - more efficient mapping of hex--key which enables "piano" playstyle
 
 ### Future plan
