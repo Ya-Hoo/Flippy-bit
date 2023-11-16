@@ -14,7 +14,7 @@ MEGA-edByte (v2) - more efficient mapping of hex--key which enables "piano" play
 UPCOMING: GIGA-edByte (v3)  
 Features planned:
 
-1. In death wave switch to targetting individual hex instead?
+1. In death wave switch to targetting individual hex instead? nope
 2. Prevents any user input (so no sabotage)
 3. On slower computers the program would stop after a while, so find out when this occurs by
 playing a trial round then after 2nd play, switch to bullet spray mode after that threshold
