@@ -37,7 +37,6 @@ Or if you want something code-related, then I would appreciate it if someone cod
 #### Instructions
 
 1. Fork this repository by going to the top-right corner of the page then click __Fork__.
-![Fork](images/fork.png)
 
 2. Navigate to your forked repository.
 Click __<> Code__.
@@ -64,7 +63,7 @@ Click __<> Code__.
     ```
 
 6. Execute the `bot.py` on the version you want to play as many times as you like.
-7. (optional) Run `analysis.py`
+7. Run `analysis.py`
 8. Commit and push.
 
     ```bash

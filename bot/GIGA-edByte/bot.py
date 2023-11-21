@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
-import time, os
+import time, os, random
 
 
 # ============================================================= #
@@ -35,7 +35,7 @@ def neutraliseTarget(hexNum):
         "8":["a","g"], "9":["af","gk"], "A":["ad","gj"], "B":["adf","gjk"],
         "C":["as","gh"], "D":["asf","ghk"], "E":["asd","ghj"], "F":["asdf","ghjk"]
     }
-    html.send_keys(''.join([conversion[byte][(index + 1) // len(hexNum)] for index, byte in enumerate(hexNum)]))
+    html.send_keys(''.join([conversion[byte.upper()][(index + 1) // len(hexNum)] for index, byte in enumerate(hexNum)]))
 
 
 # ============================================================= #
@@ -44,19 +44,23 @@ def neutraliseTarget(hexNum):
 time.sleep(4)
 html.send_keys(Keys.ENTER)
 
+score = 0
 while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):
     try:
-        enemies = [enemy for enemy in browser.find_elements(By.CLASS_NAME, 'enemy')
-                   if "under-attack" not in enemy.get_attribute('class')]
-        if len(enemies) > 0:
-            for enemy in enemies:
+        for enemy in browser.find_elements(By.CLASS_NAME, 'enemy'):
+            if "under-attack" not in enemy.get_attribute('class'):
                 neutraliseTarget(enemy.text)
+                score += 1
     # Ignore enemies who's targetted but haven't been hit
     except StaleElementReferenceException:
         time.sleep(0.001)
-        
+"""
+while :
+    neutraliseTarget(hex(random.randint(0, 255))[2:])
+    """
+    
 # Data recording
 score = browser.find_element(By.ID, 'score').text
-file_path = rf"{os.getcwd()}\bot\MEGA-edByte\log.txt"
+file_path = rf"{os.getcwd()}\bot\GIGA-edByte\log.txt"
 with open(file_path, 'a') as f:
     f.write(f"{score}\n")

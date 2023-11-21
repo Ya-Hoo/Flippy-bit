@@ -14,10 +14,11 @@ data_path = fr"{directory}\data"
 data = {}
 for botVersion in os.listdir(bot_path):
     log_path = fr"{os.path.abspath(fr"bot\{botVersion}")}\log.txt"
-    data[botVersion] = []
+    contractedBotName = botVersion[:-7]
+    data[contractedBotName] = []
     with open(log_path, 'r') as f:
         for score in f:
-            data[botVersion].append(int(score.rstrip("\n")))
+            data[contractedBotName].append(int(score.rstrip("\n")))
 
 # Set lower and upper bound for historgram + box
 maxVal = max(max(data.values(), key=lambda x: max(x))) + 10
