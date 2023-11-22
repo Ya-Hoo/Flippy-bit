@@ -46,14 +46,12 @@ html.send_keys(Keys.ENTER)
 
 while "game-over" not in browser.find_element(By.TAG_NAME, 'html').get_attribute('class'):
     try:
-        enemies = [enemy for enemy in browser.find_elements(By.CLASS_NAME, 'enemy')
-                   if "under-attack" not in enemy.get_attribute('class')]
-        if len(enemies) > 0:
-            for enemy in enemies:
+        for enemy in browser.find_elements(By.CLASS_NAME, 'enemy'):
+            if "under-attack" not in enemy.get_attribute('class'):
                 neutraliseTarget(enemy.text)
     # Ignore enemies who's targetted but haven't been hit
     except StaleElementReferenceException:
-        time.sleep(0.001)
+        continue
         
 # Data recording
 score = browser.find_element(By.ID, 'score').text

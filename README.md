@@ -6,19 +6,8 @@ To commemorate Edward, the True Flippy Bit Champion
 
 ### Released
 
-KILO-edByte (v1) - first version, had flaws such as occasional strokes which causes delay, also unable to play the 'deathwave'  
-MEGA-edByte (v2) - more efficient mapping of hex--key which enables "piano" playstyle
-
-### Future plan
-
-UPCOMING: GIGA-edByte (v3)  
-Features planned:
-
-1. In death wave switch to targetting individual hex instead OR limitting the list size so that it doesnt overload?
-2. Prevents any user input (so no sabotage)
-3. On slower computers the program would stop after a while, so find out when this occurs by
-playing a trial round then after 2nd play, switch to bullet spray mode after that threshold
-4. Noted that on slow computers, at the death wave it would be so slow that keyboard smashing will get you to above 160. So...how about we write a program that will intentionally slow our computer down and achieve this result?
+KILO-edByte (v1) - first version, had flaws such as occasional strokes which causes delay, also unable to play the 'deathwave'
+MEGA-edByte (v2) - more efficient mapping of hex--key which enables "piano" playstyle, also attack hex one by one instead of storing inside a list
 
 ## Analysis and comparison
 
