@@ -45,15 +45,30 @@ Click __<> Code__.
     git checkout -b branch-name
     ```
 
-5. Open Powershell in the same directory then type in the command below to install the necessary libraries
+5. Create a new virtual environment, then activate it
+
+    ```powershell
+    python -m venv env
+    cd env
+    Scripts\activate
+    cd ..
+    ```
+
+6. Open Powershell in the same directory then type in the command below to install the necessary libraries
 
     ```powershell
     python -m pip install -r requirements.txt
     ```
 
-6. Execute the `bot.py` on the version you want to play as many times as you like.
-7. Run `analysis.py`
-8. Commit and push.
+7. Execute the `bot.py` on the version you want to play as many times as you like.
+8. Run `analysis.py`
+9. Deactivate your virtual environment
+
+    ```powershell
+    deactivate
+    ```
+
+10. Commit and push.
 
     ```bash
     git add .
@@ -61,7 +76,7 @@ Click __<> Code__.
     git push origin branch-name
     ```
 
-9. Create a new pull request from your forked repository (Click __New Pull Request__ at the top of your repository)
+11. Create a new pull request from your forked repository (Click __New Pull Request__ at the top of your repository)
 
 ### Graphs
 
