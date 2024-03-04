@@ -49,9 +49,7 @@ Click __<> Code__.
 
     ```powershell
     python -m venv env
-    cd env
-    Scripts\activate
-    cd ..
+    env\Scripts\activate
     ```
 
 6. Open Powershell in the same directory then type in the command below to install the necessary libraries
